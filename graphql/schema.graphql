@@ -1,0 +1,56 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+type Query {
+  getAddressByZipcode(requestBody: ZipcodeInput): AddressByZipcode
+  getParty(id: String): Party
+  listParty: [Party]
+}
+
+type Mutation {
+  createParty(requestBody: PartyInput!): Party
+  updateParty(id: String!, requestBody: PartyInput): Party
+  deleteParty(id: String!): Party
+}
+
+input PartyInput {
+  organizer: String
+  guests: String
+  date: String
+}
+
+type Party {
+  organizer: String
+  guests: String
+  date: String
+  id: String
+}
+
+input ZipcodeInput {
+  zipcode: String
+}
+
+type GeolocationAddressByZipcode {
+  latitude: String
+  longitude: String
+}
+
+type AddressByZipcode {
+  streetAddress: String
+  district: String
+  postalCode: String
+  addressLocality: String
+  addressRegion: String
+  localityCode: String
+  capital: Boolean
+  macroRegion: String
+  geolocation: GeolocationAddressByZipcode
+  provider: ProviderAddressByZipcodeEnum
+}
+
+enum ProviderAddressByZipcodeEnum {
+  AWESOME_API
+  VIACEP
+}

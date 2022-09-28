@@ -1,0 +1,12 @@
+{
+  "version": "2018-05-29",
+  "method": "DELETE",
+  "params": {
+    "headers": {
+      "Content-Type": "application/json",
+      "Authorization": $util.toJson($util.defaultIfNullOrEmpty($context.request.headers.authorization, 'unauthorized')),
+      "trace-id": $util.toJson($util.autoKsuid())
+    }
+  },
+  "resourcePath": "/party/$context.arguments.id",
+}

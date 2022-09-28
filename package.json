@@ -1,0 +1,50 @@
+{
+  "name": "my-bff",
+  "version": "0.0.1",
+  "description": "appsync with serverless",
+  "os": [
+    "darwin",
+    "linux",
+    "!win32"
+  ],
+  "engines": {
+    "node": ">=16",
+    "npm": ">=8"
+  },
+  "keywords": [],
+  "author": "Luciano Junior",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "2.1175.0",
+    "axios": "^0.27.2",
+    "debug": "4.3.4",
+    "graphql": "^15.8.0",
+    "promise.any": "^2.0.4",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.0.3",
+    "@commitlint/config-conventional": "^17.0.3",
+    "@graphql-codegen/cli": "^2.11.6",
+    "@graphql-codegen/typescript": "^2.7.3",
+    "@graphql-codegen/typescript-operations": "^2.5.3",
+    "@graphql-codegen/typescript-react-query": "^4.0.1",
+    "aws-sdk-mock": "5.7.0",
+    "axios": "^0.27.2",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-config-standard": "17.0.0",
+    "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-jest": "26.6.0",
+    "eslint-plugin-n": "15.2.4",
+    "eslint-plugin-prettier": "4.2.1",
+    "eslint-plugin-promise": "6.0.0",
+    "gql-generator": "^1.0.17",
+    "serverless": "3.21.0",
+    "serverless-appsync-plugin": "^1.13.0",
+    "serverless-domain-manager": "6.0.3",
+    "serverless-dotenv-plugin": "^4.0.2",
+    "serverless-offline": "8.8.1",
+    "serverless-plugin-lambda-insights": "1.5.0",
+    "serverless-prune-plugin": "2.0.1"
+  }
+}

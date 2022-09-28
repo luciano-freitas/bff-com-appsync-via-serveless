@@ -1,0 +1,170 @@
+service: my-bff
+
+plugins:
+  - serverless-dotenv-plugin
+  - serverless-prune-plugin
+  - serverless-plugin-lambda-insights
+  - serverless-appsync-plugin
+  - serverless-offline #needs to be last in the list
+
+useDotenv: true
+configValidationMode: warn
+
+package:
+  individually: true
+  excludeDevDependencies: true
+  patterns:  
+    - node_modules/**
+    - src/**
+    - '!.github/**'
+    - '!.vscode/**'
+    - '!coverage/**'
+    - '!dist-*/**'
+    - '!test/**'
+    - '!.editorconfig'
+    - '!.eslintrc.json'
+    - '!.gitignore'
+    - '!.nvmrc'
+    - '!.prettier*'
+    - '!package.json'
+    - '!package-lock.json'
+    - '!README.md'
+    - '!serverless.yml'
+
+provider:
+  name: aws
+  architecture: x86_64
+  region: us-east-1
+  stage: dev
+  runtime: nodejs16.x
+  versionFunctions: true
+  logRetentionInDays: 5
+  timeout: 30
+  stackName: serverless-${self:service}-${self:provider.stage}
+  memorySize: 128
+  environment: 
+    AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1
+    NODE_ENV: dev
+    API_ZIPCODE_VIACEP_ENDPOINT: https://viacep.com.br/ws
+    API_ZIPCODE_AWESOME_API: https://cep.awesomeapi.com.br/json
+    API_MOCK_PARTY: ${env:API_MOCK_PARTY}
+
+  logs:
+    restApi:
+      accessLogging: false
+      executionLogging: true
+  iam:
+    role:
+      name: serverless-${self:service}-${self:provider.stage}-role
+      managedPolicies:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+      statements:
+        - Effect: 'Allow'
+          Action:
+            - logs:CreateLogGroup
+            - logs:CreateLogStream
+            - logs:PutLogEvents
+          Resource:
+            - 'arn:aws:logs:us-east-1::log-group:/aws/lambda/*'
+        - Effect: 'Allow'
+          Action:
+            - 'lambda:InvokeFunction'
+          Resource:
+            - 'arn:aws:lambda:us-east-1:*:function:*'
+
+functions:
+  authorizer-platform-web:
+    description: Lambda of authorizer
+    handler: src/lambdas/authorizer/authorizer.http
+    lambdaInsights: true
+
+  get-address-by-zipcode:
+    description: Get address by zipcode
+    handler: src/lambdas/zipcode/zipcode.handler
+    lambdaInsights: true
+
+resources: 
+  Resources:
+    appSyncBff:
+      Type: AWS::IAM::Role
+      Properties:
+        RoleName: serverless
+        AssumeRolePolicyDocument:
+          Version: '2012-10-17'
+          Statement:
+            - Effect: 'Allow'
+              Principal:
+                Service:
+                  - 'appsync.amazonaws.com'
+              Action:
+                - 'sts:AssumeRole'
+        Policies:
+          - PolicyName: serverless-my-bff-logs-policy
+            PolicyDocument:
+              Version: '2012-10-17'
+              Statement:
+                - Effect: 'Allow'
+                  Action:
+                    - logs:CreateLogGroup
+                    - logs:CreateLogStream
+                    - logs:PutLogEvents
+                  Resource: '*'
+
+custom:
+  appSync:
+    name: my-appsync
+    authenticationType: AWS_LAMBDA
+    lambdaAuthorizerConfig:
+      functionName: authorizer-platform-web
+    schema: graphql/schema.graphql
+    mappingTemplatesLocation: templates
+    defaultMappingTemplates:
+      response: response.vtl
+    mappingTemplates: 
+      - type: Query
+        field: getAddressByZipcode
+        dataSource: datasource_cep
+        request: false
+        response: false
+      - type: Query
+        dataSource: datasource_party
+        field: listParty
+        request: query/party/list.vtl
+      - type: Query
+        dataSource: datasource_party
+        field: getParty
+        request: query/party/get.vtl
+      - type: Mutation
+        dataSource: datasource_party
+        field: createParty
+        request: mutation/party/create.vtl
+      - type: Mutation
+        dataSource: datasource_party
+        field: updateParty
+        request: mutation/party/update.vtl
+      - type: Mutation
+        dataSource: datasource_party
+        field: deleteParty
+        request: mutation/party/delete.vtl
+
+    dataSources:
+      - type: AWS_LAMBDA
+        name: datasource_cep
+        description: 'Lambda DataSource'
+        config:
+          functionName: get-address-by-zipcode
+      - type: HTTP
+        name: datasource_party
+        description: 'Api os party'
+        config:
+          endpoint: ${self:provider.environment.API_MOCK_PARTY}
+          
+    logConfig:
+      level: ALL # Logging Level: NONE | ERROR | ALL
+      excludeVerboseContent: false
+
+  lambdaInsights:
+    defaultLambdaInsights: true
+  prune:
+    automatic: true
+    number: 3

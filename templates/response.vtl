@@ -1,0 +1,9 @@
+#if($ctx.result.statusCode == 200)
+    $ctx.result.body
+#elseif($ctx.result.statusCode == 204)
+    {"statusCode":204,"message":"no content"}
+#elseif($ctx.result.statusCode == 500)
+    {"statusCode":500,"message":"Erro no servidor"}
+#else
+    $ctx.result.body
+#end
