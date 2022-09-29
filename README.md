@@ -24,13 +24,14 @@ Antes de iniciarmos o projeto, faça o login na [AWS Console](https://aws.amazon
 - [2º] Busque por IAM na barra de pesquisa
 - [3º] Crie um usuário apenas para acesso pelas credenciais de acesso ao aws cli
 - [4º] Vincule apenas as permissões que você irá precisar para usar os recursos pela aws cli
+- [5º] Em seguida adicione essas credenciais em sua máquina, [Clique aqui](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html) e veja como configurar.
 
 ## 🛠️ Instalação
 Você precisa ter instalado as seguintes ferramentas:
-[NodeJs](https://nodejs.org/en/download/)
-[AWS Cli](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
-[Serverless Framework](https://www.serverless.com/)
-[Mock Api](https://mockapi.io/)
+- [NodeJs](https://nodejs.org/en/download/)
+- [AWS Cli](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+- [Serverless Framework](https://www.serverless.com/)
+- [Mock Api](https://mockapi.io/)
 
 ## 🏃 Para rodar a aplicação basta executar os seguintes comandos
 
