@@ -23,7 +23,7 @@ const handler = async (event) => {
 }
 
 const getAddressByZipcodeAwesomeApi = async (zipcode) => {
-  const result = await request.get(`${process.env.API_ZIPCODE_AWESOME_API}/${zipcode}`)
+  const result = await request.get(`${process.env.API_ZIPCODE_AWESOME_ENDPOINT}/${zipcode}`)
   return formatAddressAwesomeApi(result.data)
 }
 

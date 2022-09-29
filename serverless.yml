@@ -44,9 +44,9 @@ provider:
   memorySize: 128
   environment: 
     AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1
-    NODE_ENV: dev
-    API_ZIPCODE_VIACEP_ENDPOINT: https://viacep.com.br/ws
-    API_ZIPCODE_AWESOME_API: https://cep.awesomeapi.com.br/json
+    NODE_ENV: ${self:provider.stage}
+    API_ZIPCODE_VIACEP_ENDPOINT: ${env:API_ZIPCODE_VIACEP_ENDPOINT}
+    API_ZIPCODE_AWESOME_ENDPOINT: ${API_ZIPCODE_AWESOME_ENDPOINT}
     API_MOCK_PARTY: ${env:API_MOCK_PARTY}
 
   logs:
