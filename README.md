@@ -12,11 +12,11 @@ Além disso foi implementado uma camada de cache automatizada pelo próprio Apps
 ## 🔒 Variáveis de ambiente
 Para que a aplicação rode perfeitamente, você precisará das seguintes variáveis de ambiente configurada no projeto
 
-| Environment                  | Descrição                                       | Valor Padrão                       |
-| ---------------------------- | ----------------------------------------------- |----------------------------------- |
-| API_ZIPCODE_VIACEP_ENDPOINT  | Endpoint da api do viacep                       | https://viacep.com.br/ws           |
-| API_ZIPCODE_AWESOME_ENDPOINT | Endpoint da api do awesomeApi                   | https://cep.awesomeapi.com.br/json |
-| API_MOCK_PARTY               | Endpoint do microserviço fake usando o mockApi  | https://<seu-codigo>.mockapi.io    |
+| Environment                  | Descrição                                       | Valor Padrão                          |
+| ---------------------------- | ----------------------------------------------- |-------------------------------------- |
+| API_ZIPCODE_VIACEP_ENDPOINT  | Endpoint da api do viacep                       | https://viacep.com.br/ws              |
+| API_ZIPCODE_AWESOME_ENDPOINT | Endpoint da api do awesomeApi                   | https://cep.awesomeapi.com.br/json    |
+| API_MOCK_PARTY               | Endpoint do microserviço fake usando o mockApi  | https://seu-codigo-aqui.mockapi.io    |
 
 ## 📌 Faça sua configuração na AWS 
 Antes de iniciarmos o projeto, faça o login na [AWS Console](https://aws.amazon.com/pt/) e siga os seguintes passos:
