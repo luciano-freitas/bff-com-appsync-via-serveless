@@ -5,7 +5,7 @@ Este repositório tem como objetivo demonstrar de uma forma simples e objetiva c
 Dentro do projeto, foi criado 2 tipos de conexão, sendo uma via HTTP ou seja conectando o nosso Appsync a um microserviço e a outra forma foi conectar com um serviço Lambda.
 Além disso foi implementado uma camada de cache automatizada pelo próprio Appsync para poder ajudar na performa da nossa aplicação, e para conseguirmos fazer uma análise mais a funda o modulo de X-ray foi habilitado para fazer todo o trace-id do caminho que foi percorrido.
 
-## 🎯 Fluxo dos micro serviços
+## 🎯 Fluxo da aplicação
 <img src="./Appsync%20com%20serverless.png" width="800">
 
 ## 🔒 Variáveis de ambiente
