@@ -3,10 +3,9 @@
 ## 📚 Descrição
 Este repositório tem como objetivo demonstrar de uma forma simples e objetiva com criar um BFF bem simples com o Appsync via serverless.<br>
 Dentro do projeto, foi criado 2 tipos de conexão, sendo uma via HTTP ou seja conectando o nosso Appsync a um microserviço e a outra forma foi conectar com um serviço Lambda.
-Além disso foi implementado uma camada de cache automatizada pelo próprio Appsync para poder ajudar na performa da nossa aplicação, e para conseguirmos fazer uma análise mais a funda o modulo de X-ray foi habilitado para fazer todo o trace-id do caminho que foi percorrido.
 
 ## 🎯 Fluxo da aplicação
-<img src="./Appsync%20com%20serverless.png" width="800">
+<img src="./images/appsync-com-serverless.jpg" width="800">
 
 ## 🔒 Variáveis de ambiente
 Para que a aplicação rode perfeitamente, você precisará das seguintes variáveis de ambiente configurada no projeto
@@ -30,10 +29,11 @@ Para não precisarmos ter que criar uma API completa, foi utilizado o mockApi, u
 - [1º] Acesse o link: [https://mockapi.io/](https://mockapi.io/)
 - [2º] Vá na opção de criar projeto e de o nome dele de `my-bff`
 - [3º] Em seguida vá na opção de **NEW RESOURCE** de o nome de `party` e depois adicione as seguintes informações:<br>
-<img src="./mock-api.jpg" width="400">
+<img src="./images/mock-api-1.jpg" width="400">
+
 - [4º] Deixe o restante tudo padrão e clique em Salvar
-- [5º] Em seguira será gerada um endpoint bem parecido como esse: [https://123456789.mockapi.io/](https://123456789.mockapi.io/), copie esse código e coloque em sua variavel de ambiente no projeto com o seguinte nome: `API_MOCK_PARTY`
-<img src="./mock-api-2.jpg" width="350">
+- [5º] Em seguira será gerada um endpoint bem parecido como esse: [https://123456789.mockapi.io/](https://123456789.mockapi.io/), copie esse código e coloque em sua variavel de ambiente no projeto com o seguinte nome: `API_MOCK_PARTY`<br>
+<img src="./images/mock-api-2.jpg" width="350">
 
 ## 🛠️ Instalação
 Você precisa ter instalado as seguintes ferramentas:
@@ -62,6 +62,4 @@ Acesse a documentação do plugin utilizado para a configuração do appsync no 
 ## 🔦 O que está sendo criado:
 - [1º] Appsync
 - [2º] Cloud Watch
-- [3º] Cache com Elasticache
-- [4º] X-Ray
-- [5º] Lambda
+- [3º] Lambda
