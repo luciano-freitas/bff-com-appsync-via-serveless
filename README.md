@@ -87,11 +87,11 @@ token que criamos lá no arquivo `src/lambdas/authorizer.js` para exemplificar d
 
 - [1º] Faça uma busca na barra de pesquisa na página principal por (`lambda`)
 - [2º] Clique em `Functions` para conseguir visualizar todas das lambdas que foram construídas pelo appsync, caso você já tenha outros lambas já criados, faça uma pesquisa da seguinte forma: `my-bff`, feito isso você deverá visualizar 2 lambdas, navegue entre elas para conseguir visualizar suas particulariedades <br>
-<img src="./images/lambda-5.jpg" width="800"><br>
+<img src="./images/lambda-1.jpg" width="800"><br>
 
 ### Visualizando os logs no Cloud Watch
 
 - [1º] Faça uma busca na barra de pesquisa na página principal por (`cloud watch`)
 - [2º] Clique em `Log groups`, dentro dessa opção você conseguirá visualizar todos os logs, para conseguir fazer uma pesquisa mais assertiva já que você pode ter vários logs de outros serviços, pesquise por `appsync` e em seguida `my-bff`, entre dentro de cada um para acompanhar os logs.<br>
-<img src="./images/cloudwatch-6.jpg" width="800"><br>
+<img src="./images/cloudwatch-1.jpg" width="800"><br>
 
