@@ -61,5 +61,37 @@ Acesse a documentação do plugin utilizado para a configuração do appsync no 
 
 ## 🔦 O que está sendo criado:
 - [1º] Appsync
-- [2º] Cloud Watch
-- [3º] Lambda
+- [2º] Lambda
+- [3º] Cloud Watch
+
+## 🔗 Como visualizar e testar no console da AWS
+Primeiro, faça o login na plataforma da AWS [clicando aqui](https://aws.amazon.com/pt/)
+### Visualizando o Appsync
+
+- [1º] Faça uma busca na barra de pesquisa na página principal por (`appsync`)
+- [2º] No menu de APIs selecione o nome do seu projeto criado pelo serverless (`my-appsync`)
+- [3º] Clique em `Schema`, aqui vamos poder observar como a estrutura de graphql que você construiu via código ficou na plataforma. <br>
+<img src="./images/appsync-1.jpg" width="800"><br>
+
+- [4º] Clique em `Data Sources`, esse menu é onde você conseguirá visualizar onde estão suas APIs de seus microserviços que você apontou em seu código no arquivo **serverless.yml** <br>
+<img src="./images/appsync-2.jpg" width="800"><br>
+
+- [5º] Clique em `Queries`, dentro desse menu vamos conseguir testar nossas queries, tanto Query quanto Mutation, mas antes disso precisamos adicionar o nosso 
+token que criamos lá no arquivo `src/lambdas/authorizer.js` para exemplificar deixar um valor fixo no código como `Bearer token`, depois disso você conseguirá fazer uma consulta por exemplo<br>
+<img src="./images/appsync-3.jpg" width="800"><br>
+
+- [6º] Por último clique em `Settings`, é lá onde vai estar as configurações como o link de acesso, configuração de logs, x-ray, configuração de WAF, dentre outros...<br>
+<img src="./images/appsync-4.jpg" width="800"><br>
+
+### Visualizando as Lambdas
+
+- [1º] Faça uma busca na barra de pesquisa na página principal por (`lambda`)
+- [2º] Clique em `Functions` para conseguir visualizar todas das lambdas que foram construídas pelo appsync, caso você já tenha outros lambas já criados, faça uma pesquisa da seguinte forma: `my-bff`, feito isso você deverá visualizar 2 lambdas, navegue entre elas para conseguir visualizar suas particulariedades <br>
+<img src="./images/lambda-5.jpg" width="800"><br>
+
+### Visualizando os logs no Cloud Watch
+
+- [1º] Faça uma busca na barra de pesquisa na página principal por (`cloud watch`)
+- [2º] Clique em `Log groups`, dentro dessa opção você conseguirá visualizar todos os logs, para conseguir fazer uma pesquisa mais assertiva já que você pode ter vários logs de outros serviços, pesquise por `appsync` e em seguida `my-bff`, entre dentro de cada um para acompanhar os logs.<br>
+<img src="./images/cloudwatch-6.jpg" width="800"><br>
+
