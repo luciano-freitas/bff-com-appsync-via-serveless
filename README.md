@@ -57,7 +57,10 @@ $ npx serverless deploy
 ## ✅ Atenção
 Não foi instalado nenhuma estrutura para rodar o appsync na máquina local<br>
 Acesse a documentação do plugin utilizado para a configuração do appsync no serverless:<br>
-[https://www.serverless.com/plugins/serverless-appsync-plugin](https://www.serverless.com/plugins/serverless-appsync-plugin)
+[https://www.serverless.com/plugins/serverless-appsync-plugin](https://www.serverless.com/plugins/serverless-appsync-plugin)<br>
+
+Link da documentação do appsync:<br>
+[https://docs.aws.amazon.com/pt_br/appsync/latest/devguide/what-is-appsync.html](https://docs.aws.amazon.com/pt_br/appsync/latest/devguide/what-is-appsync.html)
 
 ## 🔦 O que está sendo criado:
 - [1º] Appsync
